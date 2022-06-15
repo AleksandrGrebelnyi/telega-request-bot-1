@@ -1,9 +1,10 @@
 import telebot
 import emoji
-from config import bot_token
-from config import my_id
+import config
+# from config import bot_token
+# from config import my_id
 
-bot = telebot.TeleBot(bot_token, parse_mode=None)  # , parse_mode=None
+bot = telebot.TeleBot(config.bot_token, parse_mode=None)  # , parse_mode=None
 user_info = {}
 
 
@@ -142,7 +143,7 @@ def final_step(message):  # , user_info
         + emoji.emojize('🥳') + '\nЕсли у вашего тренера появятся дополнительные вопросы, он свяжется с Вами '
         'в течении 24 часов. Если дополнительных вопросов не будет, тогда Александр свяжется с Вами '
         'через 2-3 рабочих дня и отправит Вам готовую программу в личные сообщения'+ emoji.emojize('👌'))
-    bot.send_message(my_id, f'{list(user_info.keys())[0]} => {user_info.get("name")}\n'
+    bot.send_message(config.my_id, f'{list(user_info.keys())[0]} => {user_info.get("name")}\n'
                             f'{list(user_info.keys())[1]} => {user_info.get("weight")}\n'
                      f'{list(user_info.keys())[2]} => {user_info.get("waist")}\n'
                      f'{list(user_info.keys())[3]} => {user_info.get("belly")}\n'
